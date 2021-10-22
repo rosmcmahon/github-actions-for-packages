@@ -25,8 +25,8 @@ jobs:
     needs: build
     strategy:
       matrix:
-        os: [ubuntu-lastest, windows-2016]
-        node-version: [12.x, 14.x]
+        os: [ubuntu-lastest]
+        node-version: [14]
 
     steps:
       - uses: actions/checkout@v1
@@ -74,4 +74,5 @@ jobs:
         echo $PATH
         whereis docker
         /usr/bin/docker version
-        /usr/libexec/docker version
+        curl -L https://raw.githubusercontent.com/docker/compose-cli/main/scripts/install/install_linux.sh | sh
+        whereis docker
