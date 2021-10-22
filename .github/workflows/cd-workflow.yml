@@ -76,3 +76,4 @@ jobs:
         /usr/bin/docker version
         curl -L https://raw.githubusercontent.com/docker/compose-cli/main/scripts/install/install_linux.sh | sh
         whereis docker
+        /usr/local/bin/docker version
