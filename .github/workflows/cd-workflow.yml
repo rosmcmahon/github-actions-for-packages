@@ -73,3 +73,5 @@ jobs:
         docker context ls
         echo $PATH
         whereis docker
+        /usr/bin/docker version
+        /usr/libexec/docker version
