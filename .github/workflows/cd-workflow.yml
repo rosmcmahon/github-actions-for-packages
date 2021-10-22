@@ -2,10 +2,10 @@
 
 name: Docker CD
 
-on:
-  push:
-    paths:
-      - "**Dockerfile**"
+on: [push]
+#   push:
+#     paths:
+#       - "**Dockerfile**"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -57,11 +57,19 @@ jobs:
       with:
         name: webpack artifacts
         path: public
-    - name: Build container image
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{github.actor}}
-        password: ${{secrets.GITHUB_TOKEN}}
-        registry: docker.pkg.github.com
-        repository: rosmcmahon/github-actions-for-packages/tic-tac-toe
-        tag_with_sha: true
+#     - name: Build container image
+#       uses: docker/build-push-action@v1
+#       with:
+#         username: ${{github.actor}}
+#         password: ${{secrets.GITHUB_TOKEN}}
+#         registry: docker.pkg.github.com
+#         repository: rosmcmahon/github-actions-for-packages/tic-tac-toe
+#         tag_with_sha: true
+    - name: Get Tool Versions
+      run: |
+        aws --version
+        docker --version
+        docker compose version
+        docker context ls
+        echo $PATH
+        whereis docker
